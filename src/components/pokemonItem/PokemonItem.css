@@ -1,0 +1,39 @@
+.pokemonDiv {
+    width: 200px;
+    height: 300px;
+    border: solid 10px rgb(233, 233, 79);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    background-color: lightgreen;
+    color: black;
+}
+
+.image {
+    width: 180px;
+    height: 180px;
+    border: solid 5px rgb(233, 233, 79);
+    border-radius: 15px;
+    background-color: white;
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.nameHpDiv {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.hp {
+    color: red;
+    font-weight: 900;
+}
+
