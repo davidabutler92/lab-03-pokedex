@@ -1,0 +1,15 @@
+.h1 {
+    font-size: 6em;
+    color: rgb(253, 78, 78);
+    margin: none;
+}
+
+.div {
+    height: 200px;
+    width: 80vw;
+    border-bottom: solid 2px red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}

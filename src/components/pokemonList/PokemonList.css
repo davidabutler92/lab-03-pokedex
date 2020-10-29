@@ -1,0 +1,11 @@
+.listItem {
+    list-style: none;
+    margin: 20px;
+}
+
+.pokemonList {
+    width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
