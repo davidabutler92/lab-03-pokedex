@@ -21,6 +21,8 @@ export default class PokemonConainer extends Component {
     handleSubmit = event => {
         event.preventDefault();
         const filteredPokemon = searchFilter(this.state.textField, pokemonData)
+        // if search field is empty and they hit submit it will load all pokemon
+        // else search field has a pokemon name it will load only that pokemon
         if(this.state.textField === '') {
             this.setState({ pokemonData: pokemonData })
         } else {
