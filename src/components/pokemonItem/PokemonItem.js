@@ -6,7 +6,7 @@ export default function PokemonItem({ image, name, type, hp}) {
         <div className='pokemonDiv'>
             <div className='nameHpDiv'>
                 <p className='name'>{name}</p>
-                <p className="hp">{hp}</p>
+                <p className="hp">HP: {hp}</p>
             </div>
             <img className='image' src={image}></img>
             <p className='type'>Type: {type}</p>
