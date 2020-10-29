@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
 import './App.css';
-import pokemonData from '../data';
-import PokemonList from './pokemonList/PokemonList';
+import PokemonContainer from './containers/PokemonConainer';
 
-
-export default class App extends Component {
-  render() {
-    
-    return (
-      <PokemonList pokemonData={pokemonData} />
-    )
-  }
+export default function App() {
+  return (
+    <PokemonContainer />
+  )
 }
