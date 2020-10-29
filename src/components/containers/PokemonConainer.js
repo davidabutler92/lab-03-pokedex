@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import pokemonData from '../../data';
+import { pokemonData } from '../../data';
 import PokemonList from '../../components/pokemonList/PokemonList';
 import Header from '../header/Header';
 import searchFilter from './search-filter';
