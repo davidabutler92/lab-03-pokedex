@@ -15,7 +15,7 @@ export const getAllPokemon = () => {
 export const getPokeonByName = pokemonName => {
     return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${pokemonName}`)
         .then(res => {
-            // if(!res.ok) throw 'Could not get pokemon by name'
+            if(!res.ok) throw new Error();
             return res.body;
         })
         .then(res => {
