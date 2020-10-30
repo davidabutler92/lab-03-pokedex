@@ -10,7 +10,7 @@ export const getAllPokemon = () => {
             return res.results;
         })
 }
-
+//API call function 
 export const getPokeonByName = pokemonName => {
     return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${pokemonName}`)
         .then(res => {
