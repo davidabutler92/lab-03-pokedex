@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { pokemonData } from '../../data';
 import PokemonList from '../../components/pokemonList/PokemonList';
 import Header from '../header/Header';
 import searchFilter from './search-filter';
+import { getAllPokemon, getPokeonByName } from '../../services/pokemonApi';
 import './PokemonContainer.css';
 
 export default class PokemonConainer extends Component {
@@ -20,19 +20,19 @@ export default class PokemonConainer extends Component {
     //prevents page from refreshing on submit
     handleSubmit = event => {
         event.preventDefault();
-        const filteredPokemon = searchFilter(this.state.textField, pokemonData)
-        // if search field is empty and they hit submit it will load all pokemon
-        // else search field has a pokemon name it will load only that pokemon
         if(this.state.textField === '') {
-            this.setState({ pokemonData: pokemonData })
+            getAllPokemon()
+            .then(res => this.setState({ pokemonData: res }));
         } else {
-            this.setState({ pokemonData: filteredPokemon })
+            getPokeonByName(this.state.textField)
+                .then(res => this.setState({ pokemonData: res }))
         }
     }
 
     componentDidMount() {
         // when app first loads it will set Pokemon data state to all the pokemonData
-        this.setState({ pokemonData: pokemonData })
+        getAllPokemon()
+            .then(res => this.setState({ pokemonData: res }));
     }
 
     render() {

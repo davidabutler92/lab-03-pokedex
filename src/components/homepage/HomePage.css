@@ -1,0 +1,34 @@
+.homeDiv {
+    height: 200px;
+    width: 80vw;
+    border-bottom: solid 2px red;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    text-align: center;
+}
+
+.title {
+    font-size: 6em;
+    color: rgb(253, 78, 78);
+}
+
+.smallTitle {
+    font-size: 1.3em;
+    font-weight: 500;
+    color: rgb(253, 78, 78);
+    height: 200px;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+}
+
+.link {
+    text-decoration: none;
+    color: red;
+    cursor: pointer;
+}
+
+.link:hover {
+   color: lightcyan; 
+}

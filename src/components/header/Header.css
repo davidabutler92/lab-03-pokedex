@@ -7,9 +7,19 @@
 .div {
     height: 200px;
     width: 80vw;
-    border-bottom: solid 2px red;
+    border-bottom: solid 2px rgb(253, 78, 78);
     display: flex;
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    
+}
+
+.underlineNone {
+    text-decoration: none;
+}
+
+.underlineNone:hover {
+    font-size: 1.1em;
+    cursor: pointer;
 }
