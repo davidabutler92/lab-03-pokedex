@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PokemonList from '../../components/pokemonList/PokemonList';
 import Header from '../header/Header';
-import searchFilter from './search-filter';
 import { getAllPokemon, getPokeonByName } from '../../services/pokemonApi';
 import './PokemonContainer.css';
 
