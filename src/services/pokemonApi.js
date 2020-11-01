@@ -1,24 +1,30 @@
 import request from 'superagent';
+import { PER_PAGE } from '../constants';
 
 export const getAllPokemon = () => {
-    return request.get('https://alchemy-pokedex.herokuapp.com/api/pokedex?page=1&perPage=1000')
+    return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=1&perPage=${PER_PAGE}`)
         .then(res => {
             if(!res.ok) throw new Error();
             console.log(res);
             return res.body;
         })
         .then(res => {
-            return res.results;
+            return res;
         })
 }
 
-export const getPokeonByName = pokemonName => {
-    return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${pokemonName}`)
+export const getPokemon = (properties) => {
+    console.log('IN API CALL', properties?.page);
+    return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${properties?.name}&type_1=${properties?.type}&perPage=${PER_PAGE}&page=${properties?.page}`)
         .then(res => {
             if(!res.ok) throw new Error();
             return res.body;
         })
         .then(res => {
-            return res.results;
+            return res;
         })
 }
+
+
+
+

@@ -9,3 +9,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.cardLink {
+    text-decoration: none;
+}
