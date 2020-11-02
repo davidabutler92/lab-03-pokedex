@@ -19,6 +19,7 @@
 }
 
 .underlineNone:hover {
-    font-size: 1.1em;
+    color: rgb(170, 24, 24);
     cursor: pointer;
+    
 }

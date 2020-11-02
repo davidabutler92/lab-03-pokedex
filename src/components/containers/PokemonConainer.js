@@ -11,7 +11,8 @@ export default class PokemonConainer extends Component {
     pokemonData: [],
     type: "",
     page: 1,
-    count: 0
+    count: 0,
+    loading: false
   };
 
   //user input
@@ -25,33 +26,36 @@ export default class PokemonConainer extends Component {
   };
 
   setPokemonState = (apiData) => {
-    this.setState({ pokemonData: apiData.results, count: apiData.count });
+    this.setState({ pokemonData: apiData.results, count: apiData.count, loading: false });
   };
 
   //prevents page from refreshing on submit
   handleSubmit = (event) => {
     event.preventDefault();
+    this.setState({ loading: true });
     getPokemon({ name: this.state.name, type: this.state.type }).then((res) => {
       this.setPokemonState(res);
     });
   };
 
-  handleNextPage = event => {
-    this.setState({ page: 5 });
-    getPokemon({
-      name: this.state.name,
-      type: this.state.type,
-      page: this.state.page,
-    }).then((res) => this.setPokemonState(res));
+  handleNextPage = () => {
+    this.setState({ page: this.state.page + 1, loading: true }, () => {
+        getPokemon({
+          name: this.state.name,
+          type: this.state.type,
+          page: this.state.page,
+        }).then((res) => this.setPokemonState(res));
+    });
   };
 
-  handlePrevPage = event => {
-    this.setState({ page: this.state.page - 1 });
-    getPokemon({
-      name: this.state.name,
-      type: this.state.type,
-      page: this.state.page,
-    }).then((res) => this.setPokemonState(res));
+  handlePrevPage = () => {
+    this.setState({ page: this.state.page - 1, loading: true }, () => {
+        getPokemon({
+          name: this.state.name,
+          type: this.state.type,
+          page: this.state.page,
+        }).then((res) => this.setPokemonState(res));
+    });
   };
 
   componentDidMount() {
@@ -60,16 +64,29 @@ export default class PokemonConainer extends Component {
   }
 
   render() {
+    if(this.state.loading) return (
+        <section className="section">
+            <Header
+            handleSubmit={this.handleSubmit}
+            formValues={{ name: this.state.name, type: this.state.type }}
+            handleNameChange={this.handleNameChange}
+            handleTypeChange={this.handleTypeChange}
+            />
+            <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+        </section>
+        
+    )
+
     return (
-      <section className="section">
-        <Header
-          handleSubmit={this.handleSubmit}
-          formValues={{ name: this.state.name, type: this.state.type }}
-          handleNameChange={this.handleNameChange}
-          handleTypeChange={this.handleTypeChange}
-        />
-        <PokemonList pokemonData={this.state.pokemonData} handlePaging={{ next: this.handleNextPage, prev: this.handlehandlePrevPage }} count={this.state.count} page={this.state.page}/>
-      </section>
+        <section className="section">
+            <Header
+            handleSubmit={this.handleSubmit}
+            formValues={{ name: this.state.name, type: this.state.type }}
+            handleNameChange={this.handleNameChange}
+            handleTypeChange={this.handleTypeChange}
+            />
+            <PokemonList pokemonData={this.state.pokemonData} handlePaging={{ next: this.handleNextPage, prev: this.handlePrevPage }} count={this.state.count} page={this.state.page}/>
+        </section>
     );
   }
 }

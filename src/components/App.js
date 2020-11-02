@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import PokemonContainer from './containers/PokemonConainer';
 import HomePage from './homepage/HomePage';
-import DetailPage from './detailPage/DetailsPage';
+import DetailsContainer from './containers/DetailsContainer'
 import {
     BrowserRouter as Router, 
     Route, 
@@ -13,8 +13,8 @@ export default function App() {
   return (
     <Router>
       <Switch>
+        <Route path='/detail/:id' component={DetailsContainer} />
         <Route path='/search' component={PokemonContainer} />
-        <Route path='/detail' component={DetailPage} />
         <Route path='/' component={HomePage} />
       </Switch>
     </Router>

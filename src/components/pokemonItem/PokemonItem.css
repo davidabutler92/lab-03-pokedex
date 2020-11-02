@@ -1,11 +1,11 @@
 .pokemonDiv {
     width: 200px;
-    height: 300px;
+    height: 350px;
     border: solid 10px rgb(233, 233, 79);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     box-shadow: 10px 10px 5px #aaaaaa;
     background-color: lightgreen;
@@ -30,6 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    text-align: center;
 }
 
 .hp {
