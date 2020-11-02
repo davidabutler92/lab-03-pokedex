@@ -4,3 +4,8 @@
     align-items: center;
     height: 300px;
 }
+
+.loader {
+    height: 30vh;
+    width: 30vw;
+}

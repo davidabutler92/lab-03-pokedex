@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     list-style-type: none;
+    padding-inline-start: 0px;
 }
 
 .pokemonImage {
@@ -34,6 +35,5 @@ li {
     color: rgb(253, 78, 78);
     font-weight: 500;
     font-size: 1.05em;
-    
 }
 

@@ -65,21 +65,28 @@ export default class PokemonConainer extends Component {
 
   render() {
     if(this.state.loading) return (
-        <>
-            <img alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
-        </>
+        <section className="section">
+            <Header
+            handleSubmit={this.handleSubmit}
+            formValues={{ name: this.state.name, type: this.state.type }}
+            handleNameChange={this.handleNameChange}
+            handleTypeChange={this.handleTypeChange}
+            />
+            <img className='loader' alt='loader gif' src='https://www.cbc.ca/sports/longform/content/ajax-loader.gif'/>
+        </section>
+        
     )
 
     return (
-      <section className="section">
-        <Header
-          handleSubmit={this.handleSubmit}
-          formValues={{ name: this.state.name, type: this.state.type }}
-          handleNameChange={this.handleNameChange}
-          handleTypeChange={this.handleTypeChange}
-        />
-        <PokemonList pokemonData={this.state.pokemonData} handlePaging={{ next: this.handleNextPage, prev: this.handlePrevPage }} count={this.state.count} page={this.state.page}/>
-      </section>
+        <section className="section">
+            <Header
+            handleSubmit={this.handleSubmit}
+            formValues={{ name: this.state.name, type: this.state.type }}
+            handleNameChange={this.handleNameChange}
+            handleTypeChange={this.handleTypeChange}
+            />
+            <PokemonList pokemonData={this.state.pokemonData} handlePaging={{ next: this.handleNextPage, prev: this.handlePrevPage }} count={this.state.count} page={this.state.page}/>
+        </section>
     );
   }
 }
