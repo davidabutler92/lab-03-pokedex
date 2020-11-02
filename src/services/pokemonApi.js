@@ -5,7 +5,6 @@ export const getAllPokemon = () => {
     return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?page=1&perPage=${PER_PAGE}`)
         .then(res => {
             if(!res.ok) throw new Error();
-            console.log(res);
             return res.body;
         })
         .then(res => {
@@ -14,14 +13,19 @@ export const getAllPokemon = () => {
 }
 
 export const getPokemon = (properties) => {
-    console.log('IN API CALL', properties?.page);
+    console.log(properties)
     return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${properties?.name}&type_1=${properties?.type}&perPage=${PER_PAGE}&page=${properties?.page}`)
         .then(res => {
             if(!res.ok) throw new Error();
             return res.body;
         })
+}
+
+export const getPokemonById = id => {
+    return request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/${id}`)
         .then(res => {
-            return res;
+            if(!res.ok) throw new Error();
+            return res.body;
         })
 }
 

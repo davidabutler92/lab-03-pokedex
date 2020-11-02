@@ -7,7 +7,7 @@ import PagingButton from '../paging-button/PagingButton';
 export default function PokemonList({ pokemonData, handlePaging, count, page }) {
 const pokemonList = pokemonData.map(pokemon => {
     return (
-        <Link className='cardLink' to='/detail'>
+        <Link className='cardLink' to={`/detail/${pokemon._id}`}>
             <li key={pokemon._id} className='listItem'>
                 <PokemonItem
                     name={pokemon.pokemon}
@@ -21,18 +21,7 @@ const pokemonList = pokemonData.map(pokemon => {
 })
     return (
         <>
-        <PagingButton 
-        count={count}
-        handlePaging={handlePaging.prev}
-        page={page}
-        increment={-1}
-        />
-        <PagingButton 
-        count={count}
-        handlePaging={handlePaging.next}
-        page={page}
-        increment={1}
-        />
+        <PagingButton handlePaging={handlePaging} count={count} page={page} />
         <ul className='pokemonList'>
             {pokemonList}
         </ul>
